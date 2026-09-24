@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int BinarySearch(int a[], int n, int x){
+	int low=0, hight=n-1;
+	while(low<= hight){
+		int mid=(low+hight)/2;
+		if (x>a[mid]){
+			low = mid+1;
+		}else if (x<a[mid]){
+			hight=mid-1;
+		} else {
+			return mid;
+		}
+	}
+	return -1;
+}
+
+int main(){
+	// 1.input
+	int x,n; cin >> x >> n;
+	int a[n];
+	for (int i=0; i<n; i++){
+		cin >> a[i];
+	}
+	//2.process
+	sort(a,a+n);
+	int vt=BinarySearch(a,n,x);
+	
+	
+	//3.output
+	if (vt!=-1){
+		cout << "YES";
+	} else {
+		cout << "NO";
+	}
+	
+	return 0;
+}
